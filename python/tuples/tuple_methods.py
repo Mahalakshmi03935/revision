@@ -7,3 +7,4 @@ print("count of lst :",tuple(lst).count(2))
 
 #index()func
 print("position of element 4 in the lst:",tuple(lst).index(4))
+
