@@ -1,0 +1,18 @@
+# Databricks notebook source
+employee_data=[(100,'Sesha','M',2000,'IT'), 
+               (200,'Maha','F',3000,'HR'),
+               (300,'Mary','F',1500, 'IT'),
+               (400,'Bob','M',4000, 'SALES'),
+               (500,'Alice','F',5000, 'IT')]
+employee_schmea=['emp_id','emp_name', 'gender', 'salary', 'dept']
+df=spark.createDataFrame(employee_data, employee_schmea)
+df.display()
+
+# COMMAND ----------
+
+df.write.format('delta').saveAsTable('employee_table')
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from employee_table
