@@ -1,0 +1,30 @@
+-- Inner Join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.department_id;
+
+-- Left Join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.department_id;
+
+-- Right Join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.department_id;
+
+-- Full Outer Join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM employees e
+FULL OUTER JOIN departments d ON e.department_id = d.department_id;
+
+-- Cross Join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM employees e
+CROSS JOIN departments d;
+
+-- Self Join (Example: Finding employees in the same department)
+SELECT e1.employee_name AS Employee1, e2.employee_name AS Employee2, d.department_name
+FROM employees e1
+INNER JOIN employees e2 ON e1.department_id = e2.department_id AND e1.employee_id <> e2.employee_id
+INNER JOIN departments d ON e1.department_id = d.department_id;
